@@ -10,7 +10,7 @@
 		<ul>
 			<c:forEach var="i" begin="1" end="5">
 				<li>
-					<a href="./chat/${i}">${i} 번방 </a>
+					<a href="./server/${i}">${i} 번방 </a>
 				</li>
 			</c:forEach>
 		</ul>

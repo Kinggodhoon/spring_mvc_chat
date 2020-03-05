@@ -13,6 +13,7 @@
 		</c:if>
 		
 		<c:if test="${user != null }">
+			<a href="./logout">로그아웃</a><br/>
 			<a href="./server">채팅하러 가기</a>
 		</c:if>
 	

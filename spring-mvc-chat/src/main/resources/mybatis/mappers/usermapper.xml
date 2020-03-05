@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+	<!-- 유저 삽입 쿼리 -->
+	<insert id="insert" parameterType="User">
+		insert into user(username,nick,userpw) values(#{username},#{nick},#{userpw})
+	</insert>
+	
+	<!-- 유저 가져오기 -->
+	<select id="getUser" parameterType="java.lang.String" resultType="User">
+		select * from user where username = #{username}
+	</select>
+
+	<!-- 닉네임 체크 쿼리 -->
+	<select id="chkNick" parameterType="java.lang.String" resultType="java.lang.String">
+		select nick from user where nick = #{nick}
+	</select>
+	
+	
+</mapper>

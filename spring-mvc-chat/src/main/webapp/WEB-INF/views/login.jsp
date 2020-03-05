@@ -21,11 +21,17 @@
 				</p>
 				
 				<p>
+					<div style="color:red;">${error }</div>
+				</p>
+				
+				<p>
 					<input type="submit" value="로그인"/><br/>
-					<input type="button" id="cancle" value="돌아가기">
+					<input type="button" id="mainbtn" value="돌아가기">
 				</p>
 			</form>
 		</div>
 		
 	</body>
+	
+	<script src="/chat/resources/js/util.js"></script>
 </html>

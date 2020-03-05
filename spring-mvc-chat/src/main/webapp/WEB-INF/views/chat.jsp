@@ -4,13 +4,32 @@
 <html>
 	<head>	
 		<title>Chat</title>
+		
+		<link rel="stylesheet" type="text/css" href="/chat/resources/css/chat.css"/>
 	</head>
 
 	<body>
 		
+		<div class="article" align="center">
+		    
+			<div id="div-chat-log">
+				<textarea id="chat-log" readonly="readonly" disabled="disabled"></textarea>
+			</div>
+			<p/>
+			<div id="div-chat-input">
+				<input type="text" id="message" size="120"/>&nbsp;
+				<input type="button" id="sendbtn" value="전송">
+			</div>
+			<p/>
+			<div id="div-util">
+				<input type="button" id="backbtn" value="방 목록으로">
+				<input type="button" id="mainbtn" value="메인으로">
+			</div>
+		
+		</div>
 		
 	
 	</body>
 	
-	<script src="broadcast/resources/js/chat.js"></script>
+	<script src="/chat/resources/js/chat.js"></script>
 </html>
