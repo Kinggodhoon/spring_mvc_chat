@@ -1,5 +1,8 @@
 package gmail.kinggodhoon.chat.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -8,27 +11,26 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 @Component
 public class ChatHandler extends TextWebSocketHandler {
+	private List<WebSocketSession> userList = new ArrayList<WebSocketSession>();
 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session){
-		//로그 찍기
-		System.out.println(session);
+		userList.add(session);
 	}
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status){
-		//로그 찍기
-		System.out.println(session);
+		userList.remove(session);
 	}
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message){
-		String msg = message.getPayload();		
-		
-		System.out.println(session.getId()+" : "+msg);
+		String msg = message.getPayload();
 		
 		try {
-			session.sendMessage(new TextMessage("ReSend : "+message.getPayload()));
+			for(WebSocketSession ss : userList) {
+				ss.sendMessage(new TextMessage(msg));
+			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}

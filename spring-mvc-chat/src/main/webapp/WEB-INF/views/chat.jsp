@@ -17,6 +17,8 @@
 			</div>
 			<p/>
 			<div id="div-chat-input">
+				<div hidden="hidden" id="userid">${user.userid}</div>
+				<div hidden="hidden" id="nick">${user.nick}</div>
 				<input type="text" id="message" size="120"/>&nbsp;
 				<input type="button" id="sendbtn" value="전송">
 			</div>
