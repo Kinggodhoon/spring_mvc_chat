@@ -22,19 +22,38 @@ socket.addEventListener("message",function(e){
 
 socket.addEventListener("open",function(e){
 	console.log("Server Connected");
+	
+	message.value = "";
+	var obj = makeJson(2);
+	socket.send(obj);
 });
 
 socket.addEventListener("close",function(e){
 	console.log("Server Disconnected");
+	
+	message.value = "";
+	var obj = makeJson(3);
+	socket.send(obj);
 });
 
-
+//전송 버튼
 send.addEventListener("click",function(e){
-	var obj = makeJson();
+	var obj = makeJson(1);
 	
 	message.value = "";
 	
 	socket.send(obj);
+});
+
+//엔터로 전송
+msg.addEventListener("keydown",function(e){
+	if(e.keycode == 13){
+		var obj = makeJson(1);
+		
+		message.value = "";
+		
+		socket.send(obj);
+	}
 });
 
 //message type
