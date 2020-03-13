@@ -24,7 +24,7 @@
 			</div>
 			<p/>
 			<div id="div-util">
-				<input type="button" id="backbtn" value="방 목록으로">
+				<input type="button" id="listbtn" value="방 목록으로">
 				<input type="button" id="mainbtn" value="메인으로">
 			</div>
 		
@@ -32,6 +32,6 @@
 		
 	
 	</body>
-	
+	<script src="/chat/resources/js/util.js"></script>
 	<script src="/chat/resources/js/chat.js"></script>
 </html>
