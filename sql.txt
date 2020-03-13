@@ -1,0 +1,40 @@
+use chat;
+
+create table user(
+	userid int(11) PRIMARY KEY AUTO_INCREMENT,
+	username char(100) not NULL,
+	nick char(100) not null,
+	userpw char(100) not null
+);
+
+create table log_chat(
+	userid int(11),
+	roomid int(11),
+	content LONGTEXT,
+	timestamp datetime default now(),
+	FOREIGN key (userid) REFERENCES user(userid)
+);
+
+create table log_enter(
+	userid int(11),
+	roomid int(11),
+	timestamp datetime default now(),
+	FOREIGN key (userid) REFERENCES user(userid)
+);
+
+create table log_exit(
+	userid int(11),
+	roomid int(11),
+	timestamp datetime default now(),
+	FOREIGN key (userid) REFERENCES user(userid)
+);
+
+select * from user;
+select * from log_chat;
+select * from log_enter;
+select * from log_exit;
+
+
+drop table log_chat;
+drop table log_enter;
+drop table log_exit;
