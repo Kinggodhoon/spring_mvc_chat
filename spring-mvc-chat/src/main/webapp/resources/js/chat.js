@@ -68,6 +68,11 @@ msg.addEventListener("keydown",function(e){
 	}
 });
 
+window.addEventListener("beforeunload", function (e) {
+
+	  socket.close();
+});
+
 //message type
 //1 : send message
 //2 : enter server
